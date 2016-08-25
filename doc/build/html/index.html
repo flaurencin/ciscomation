@@ -1,0 +1,407 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Welcome to ciscomation’s documentation! &mdash; ciscomation 2.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="ciscomation 2.1 documentation" href="#"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="#" class="icon icon-home"> ciscomation
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="simple">
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="#">ciscomation</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="#">Docs</a> &raquo;</li>
+      
+    <li>Welcome to ciscomation&#8217;s documentation!</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/index.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="welcome-to-ciscomation-s-documentation">
+<h1>Welcome to ciscomation&#8217;s documentation!<a class="headerlink" href="#welcome-to-ciscomation-s-documentation" title="Permalink to this headline">¶</a></h1>
+<p>Contents:</p>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+<div class="section" id="module-ciscomate">
+<span id="ciscomate"></span><h2>ciscomate<a class="headerlink" href="#module-ciscomate" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="ciscomate.arg_conf">
+<code class="descclassname">ciscomate.</code><code class="descname">arg_conf</code><span class="sig-paren">(</span><em>description</em><span class="sig-paren">)</span><a class="headerlink" href="#ciscomate.arg_conf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reading argument given to the script.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ciscomate.exc_txt">
+<code class="descclassname">ciscomate.</code><code class="descname">exc_txt</code><span class="sig-paren">(</span><em>sys_exc_info</em><span class="sig-paren">)</span><a class="headerlink" href="#ciscomate.exc_txt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a text view of sys.exc.info data.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ciscomate.logconfig">
+<code class="descclassname">ciscomate.</code><code class="descname">logconfig</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#ciscomate.logconfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function to create a global LOGGER for the module.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>args</strong> : argparse.Namespace</p>
+<blockquote class="last">
+<div><p>Arguments passed to the script should contain args.xml_file,
+args.log_dir, args.log_level</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ciscomate.main">
+<code class="descclassname">ciscomate.</code><code class="descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ciscomate.main" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main task</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ciscomate.pause">
+<code class="descclassname">ciscomate.</code><code class="descname">pause</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ciscomate.pause" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prompts you for going further.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ciscomate.run_commands">
+<code class="descclassname">ciscomate.</code><code class="descname">run_commands</code><span class="sig-paren">(</span><em>host, login, password, driver=None, commands=['show version'], abort_on_error=True, conf_mode=False, save=False, continue_on_login_failure=True, pause_end=False</em><span class="sig-paren">)</span><a class="headerlink" href="#ciscomate.run_commands" title="Permalink to this definition">¶</a></dt>
+<dd><p>run_commands, run a list of commands</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>host</strong> : str</p>
+<blockquote>
+<div><p>device to connect to</p>
+</div></blockquote>
+<p><strong>login: str</strong></p>
+<blockquote>
+<div><p>login credential</p>
+</div></blockquote>
+<p><strong>password: str</strong></p>
+<blockquote>
+<div><p>password credential</p>
+</div></blockquote>
+<p><strong>driver</strong> : str, optional</p>
+<blockquote>
+<div><p>Set it only if you are sure of the driver you want to use.</p>
+</div></blockquote>
+<p><strong>abort_on_error: bool</strong></p>
+<blockquote>
+<div><p>Defaults to True, if True will stop if a command failes</p>
+</div></blockquote>
+<p><strong>conf_mode: bool</strong></p>
+<blockquote>
+<div><p>Defaults to False, if True the configuration mode will be enabled
+before running the commands</p>
+</div></blockquote>
+<p><strong>conf_mode: bool</strong></p>
+<blockquote>
+<div><p>Defaults to False, if True the configuration mode will be enabled</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">result: dict</p>
+<blockquote class="last">
+<div><p>dict image of the retrun from the commands. Structure is like so</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">result</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">host</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&#39;driver&#39;</span> <span class="p">:</span> <span class="s">&#39;ios&#39;</span><span class="p">,</span>
+        <span class="s">&#39;status_ok&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+        <span class="s">&#39;commands&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s">&quot;configure terminal&quot;</span><span class="p">:</span> <span class="s">&quot;Enter configuration...&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+            <span class="s">&quot;no ip access-list standard SNMP_RO&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="s">&#39;logs&#39;</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ciscomate.run_maint">
+<code class="descclassname">ciscomate.</code><code class="descname">run_maint</code><span class="sig-paren">(</span><em>maint_data</em>, <em>credentials</em>, <em>procnum=1</em><span class="sig-paren">)</span><a class="headerlink" href="#ciscomate.run_maint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute a maintenance, uing specified credentials for SSH access, and
+attempts to run it with multiprocess, if maintenance as been recognized
+compatible.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>maint_data</strong> : dict</p>
+<blockquote class="last">
+<div><p>maintenance file detail like so :</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ciscomate.set_connection">
+<code class="descclassname">ciscomate.</code><code class="descname">set_connection</code><span class="sig-paren">(</span><em>host</em>, <em>login</em>, <em>password</em>, <em>driver='ios'</em><span class="sig-paren">)</span><a class="headerlink" href="#ciscomate.set_connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>set_connection configures Exscript SSH2 Connection and validate the device
+type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>host</strong> : str</p>
+<blockquote>
+<div><p>device to connect to</p>
+</div></blockquote>
+<p><strong>login: str</strong></p>
+<blockquote>
+<div><p>login credential</p>
+</div></blockquote>
+<p><strong>password: str</strong></p>
+<blockquote>
+<div><p>password credential</p>
+</div></blockquote>
+<p><strong>driver</strong> : str, optional</p>
+<blockquote>
+<div><p>base driver to test.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">connection: Exscript.protocols.SSH2</p>
+<blockquote class="last">
+<div><p>SSH2 object usable with proper driver.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-ciscomation_exc">
+<span id="ciscomation-exc"></span><h2>ciscomation_exc<a class="headerlink" href="#module-ciscomation_exc" title="Permalink to this headline">¶</a></h2>
+<dl class="exception">
+<dt id="ciscomation_exc.CiscomationException">
+<em class="property">exception </em><code class="descclassname">ciscomation_exc.</code><code class="descname">CiscomationException</code><a class="headerlink" href="#ciscomation_exc.CiscomationException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used for general purpose</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="ciscomation_exc.CiscomationLoginFailed">
+<em class="property">exception </em><code class="descclassname">ciscomation_exc.</code><code class="descname">CiscomationLoginFailed</code><a class="headerlink" href="#ciscomation_exc.CiscomationLoginFailed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used when authentication is unsuccessful</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-ciscomation_mp">
+<span id="ciscomation-mp"></span><h2>ciscomation_mp<a class="headerlink" href="#module-ciscomation_mp" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-ciscomation_xml">
+<span id="ciscomation-xml"></span><h2>ciscomation_xml<a class="headerlink" href="#module-ciscomation_xml" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="ciscomation_xml.check_mp_commands">
+<code class="descclassname">ciscomation_xml.</code><code class="descname">check_mp_commands</code><span class="sig-paren">(</span><em>commands</em><span class="sig-paren">)</span><a class="headerlink" href="#ciscomation_xml.check_mp_commands" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cheching that all commands passed or multi process compatible. And if using
+special command checks that they are known.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ciscomation_xml.xml_to_maintenance">
+<code class="descclassname">ciscomation_xml.</code><code class="descname">xml_to_maintenance</code><span class="sig-paren">(</span><em>filname</em><span class="sig-paren">)</span><a class="headerlink" href="#ciscomation_xml.xml_to_maintenance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reading xml to prepare a maintenance. Then plays teh maintenance. Get the
+feedback. and give a general status + detailed status.</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span>Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span>Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span>Search Page</span></a></li>
+</ul>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Copyright 2016 Frederic Laurencin.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'2.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

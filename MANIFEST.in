@@ -1,0 +1,3 @@
+recursive-exclude ciscomation *-test.py
+exclude *.txt
+exclude *.xlsx
