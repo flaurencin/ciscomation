@@ -31,6 +31,7 @@ Usage
 
 Install with pip.
 Than you can run the command ciscomate directly
+
 ```
 ciscomate -h
 usage: ciscomate-script.py [-h] -i XML_FILE [--log-level LOG_LEVEL]
@@ -66,7 +67,7 @@ Somme speical commands are not compatible with multiprocess:
 
 Because they are interactive.
 
-.. [*] Running a maintenance in pultiprocess may lead to a disaster if you did 
+.. [note] Running a maintenance in pultiprocess may lead to a disaster if you did 
 not test it before.
 
 
@@ -75,7 +76,7 @@ Example
 
 First create the maintenance description in an xml file
 
-.. code:: xml
+.. code:: XML
 <?xml version="1.0" encoding="UTF-8"?>
 <switches>
     <switch>
