@@ -4,6 +4,10 @@ Overview
 Ciscomation is a script for pushing commands to cisco devices based on xml
 file. It allows usage of multiprocessing, if maintenance description is
 compatible.
+From the directory it's played in, it will generate xlsx report of the 
+maintenance, a command/result file, a maintenance.txt file which is a json
+image of the maintenance and a dump file which is a json image of the
+result of the execution of the script.
 
 Features
 ~~~~~~~~
