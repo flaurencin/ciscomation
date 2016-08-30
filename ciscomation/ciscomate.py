@@ -301,6 +301,22 @@ def run_commands(host, login, password, driver=None, commands=["show version"],
                 )
                 if abort_on_error:
                     return result
+            except Exception as exc:
+                result[host]['status_ok'] = False
+                result[host]['logs'].append(
+                    (
+                        'critical',
+                        '{} Command Failed with unknown Exception : {}'
+                    )
+                ).format(host, str(exc))
+                result[host]['logs'].append(
+                    (
+                        'debug',
+                        '{} details:\n{}'.format(host, exc_txt(sys.exc_info()))
+                    )
+                )
+                if abort_on_error:
+                    return result
             continue
         elif keyword.startswith('--sleep-'):
             timer = keyword.replace('--sleep-', '')
@@ -402,6 +418,24 @@ def run_commands(host, login, password, driver=None, commands=["show version"],
             )
             if abort_on_error and not state['ignore-error']:
                 return result
+            continue
+        except Exception as exc:
+            result[host]['status_ok'] = False
+            result[host]['logs'].append(
+                (
+                    'critical',
+                    '{} Command Failed with unknown Exception : {}'
+                )
+            ).format(host, str(exc))
+            result[host]['logs'].append(
+                (
+                    'debug',
+                    '{} details:\n{}'.format(host, exc_txt(sys.exc_info()))
+                )
+            )
+            if abort_on_error:
+                return result
+            continue
         state.update(
             {
                 'print-next': False,

@@ -54,13 +54,13 @@ def check_mp_commands(commands):
             if cln_cmd.startswith('--sleep-'):
                 cln_cmd = cln_cmd[0:8]
             try:
-                mp_compat = mp_compat and KEYWORDS[command]['mp_compat']
+                mp_compat = mp_compat and KEYWORDS[cln_cmd]['mp_compat']
             except KeyError as e:
                 print("Invalid command detected: {}".format(command))
                 raise e
         else:
             continue
-        return mp_compat
+    return mp_compat
 
 
 def hostname_resolves(hostname):
