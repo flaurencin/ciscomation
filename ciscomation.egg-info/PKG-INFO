@@ -1,6 +1,6 @@
 Metadata-Version: 1.1
 Name: ciscomation
-Version: 2.1
+Version: 2.2
 Summary: set of python tools for managing ubiquiti access points.
 Home-page: https://github.com/flaurencin/ciscomation
 Author: Frederic Laurencin
