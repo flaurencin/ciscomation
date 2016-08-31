@@ -1,14 +1,18 @@
 Overview
 ~~~~~~~~
 
-Ciscomation is a script for pushing commands to cisco devices based on xml
-file. It allows usage of multiprocessing, if maintenance description is
+Ciscomation is a python 2.7 script for pushing commands to cisco devices based
+on xml file. It allows usage of multiprocessing, if maintenance description is
 compatible.
 
 Features
 ~~~~~~~~
 
-Support special keywords in command lines.
+- supports cisco ios, ios-xe or nxos
+- multiprocess
+- Thanks to Exscipt detects errors in command line then you can stop or 
+  continue
+- Support special keywords in command lines.
 
     ============================= ==========================================
     -   --multiline-stop          stops --multiline-start mode and sends the
@@ -31,13 +35,17 @@ Support special keywords in command lines.
 Under developpement features
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-command result matching for command execution.
+- seve-config keeword (to support extra prompts cisco may generate)
+- condition by driver commands
+- conf-start conf-stop heywords
+- command result matching for extra commands execution
 
 Usage
 ~~~~~
 
-Install with pip.
-Than you can run the command ciscomate directly
+**Install first configargparse from github because Pypi is not up to date.**
+Then install with pip.
+And run the command ciscomate directly
 
 .. parsed-literal::
 
@@ -63,6 +71,18 @@ Than you can run the command ciscomate directly
       --log-dir LOG_DIR     Path of the directory to put the logfiles
       --procnum PROCNUM     Number of process if maintenance is compatible with
                             multi process.
+
+When finished the script will generate in the current directory those files:
+
+================================ ==============================================
+- cmd_yymmdd_hhmmss.txt          Contains commands passed to the hosts, and 
+                                 console returns. 
+- dump_yymmdd_hhmmss.txt         Contains json serialized detail feedback of
+                                 the maintenance.
+- xmlfilename_yymmdd_hhmmss.txt
+                                 Excel file with table of hosts succes failures
+                                 and log statistics
+================================ ==============================================
 
 
 Warnings

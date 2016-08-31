@@ -49,7 +49,7 @@ def mp_wrapper(inqueue, outqueue, identity):
     # creating children processes input queue list and process List
 
 
-def mp_manager(func, args_list, threads_count=4):
+def mp_manager(func, args_list, threads_count=4, pbar=None):
     logger = logging.getLogger()
     signal.signal(signal.SIGINT, killer)
     logs = []
@@ -99,6 +99,7 @@ def mp_manager(func, args_list, threads_count=4):
                 break
         else:
             result.append(data)
+            pbar.update(len(result))
             if 'logs' in data[data.keys()[0]]:
                 for log in data[data.keys()[0]]['logs']:
                     logger.log(logging.getLevelName(log[0].upper()), log[1])

@@ -21,6 +21,7 @@ from ciscomation.ciscomation_mp import mp_manager
 from ciscomation.ciscomation_exc import CiscomationLoginFailed
 from ciscomation.ciscomation_exc import CiscomationException
 from ciscomation.ciscomation_xml import xml_to_maintenance
+from progressbar import Bar, ETA, FileTransferSpeed, Percentage, ProgressBar
 
 __SCRIPT__ = 'ciscomation'
 
@@ -32,6 +33,30 @@ def exc_txt(sys_exc_info):
     exc_type, exc_value, exc_traceback = sys_exc_info
     etxt = traceback.format_exception(exc_type, exc_value, exc_traceback)
     return '\n'.join(etxt)
+
+
+def init_progess_bar(bar_name, num_elts):
+    '''
+    Function to initiate a progress bar.
+    '''
+    widgets = [
+        bar_name,
+        Percentage(),
+        ' ',
+        Bar(
+            marker='=',
+            left='[',
+            right=']',
+            fill=' ',
+            fill_left=True
+        ),
+        ' ',
+        ETA(),
+        ' ',
+        FileTransferSpeed("   hosts")
+    ]
+    pbar = ProgressBar(widgets=widgets, maxval=num_elts)
+    return pbar
 
 
 def pause():
@@ -179,7 +204,7 @@ def run_commands(host, login, password, driver=None, commands=["show version"],
         host: {
             'driver': 'default',
             'status_ok': True,
-            'all_commands_ok': True,
+            'all_commands_ok': False,
             'commands': [],
             'logs': []
         }
@@ -261,6 +286,7 @@ def run_commands(host, login, password, driver=None, commands=["show version"],
         )
         return result
     # %% Executing commands
+    result[host]['all_commands_ok'] = True
     for command in commands:
         command = command.strip('\n\r')
         keyword = command.strip()
@@ -523,7 +549,9 @@ def run_maint(maint_data, credentials, procnum=1):
     results = []
     LOGGER = logging.getLogger(__SCRIPT__)
     if procnum == 1 or not maint_data['mp_compat']:
-        for switch in maint_data['actions']:
+        pbar = init_progess_bar('hosts porc=1 ', len(maint_data['actions']))
+        pbar.start()
+        for hostid, switch in enumerate(maint_data['actions']):
             data = run_commands(
                 switch['swname'],
                 credentials[0],
@@ -536,10 +564,16 @@ def run_maint(maint_data, credentials, procnum=1):
                 pause_end=switch['pause']
             )
             results.append(data)
+            pbar.update(hostid + 1)
             if 'logs' in data[data.keys()[0]]:
                 for log in data[data.keys()[0]]['logs']:
                     LOGGER.log(logging.getLevelName(log[0].upper()), log[1])
     elif procnum > 1 and maint_data['mp_compat']:
+        pbar = init_progess_bar(
+            'hosts porc={} '.format(procnum),
+            len(maint_data['actions'])
+        )
+        pbar.start()
         args_list = []
         for switch in maint_data['actions']:
             args_list.append(
@@ -560,7 +594,7 @@ def run_maint(maint_data, credentials, procnum=1):
                 }
             )
         func = run_commands
-        results = mp_manager(func, args_list, threads_count=procnum)
+        results = mp_manager(func, args_list, threads_count=procnum, pbar=pbar)
     else:
         raise CiscomationException('procum parameter cannot be null')
     dict_result = {}
