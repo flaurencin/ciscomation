@@ -284,6 +284,8 @@ def run_commands(host, login, password, driver=None, commands=["show version"],
                 )
             except InvalidCommandException as cmdex:
                 result[host]['all_commands_ok'] = False
+                if abort_on_error:
+                    result[host]['status_ok'] = False
                 result[host]['commands'].append(
                     {
                         command: None
@@ -401,6 +403,8 @@ def run_commands(host, login, password, driver=None, commands=["show version"],
                     )
         except InvalidCommandException as cmdex:
             result[host]['all_commands_ok'] = False
+            if abort_on_error and not state['ignore-error']:
+                result[host]['status_ok'] = False
             result[host]['commands'].append(
                 {
                     command: None
@@ -424,9 +428,11 @@ def run_commands(host, login, password, driver=None, commands=["show version"],
             result[host]['logs'].append(
                 (
                     'critical',
-                    '{} Command Failed with unknown Exception : {}'
+                    (
+                        '{} Command Failed with unknown Exception : {}'
+                    ).format(host, str(exc))
                 )
-            ).format(host, str(exc))
+            )
             result[host]['logs'].append(
                 (
                     'debug',
@@ -675,13 +681,14 @@ def main():
                         command.keys()[0]
                     )
                 )
-                for line in command[command.keys()[0]].splitlines():
-                    cmdresult.write(
-                        '{}{}\n'.format(
-                            indent*2,
-                            line
+                if command[command.keys()[0]]:
+                    for line in command[command.keys()[0]].splitlines():
+                        cmdresult.write(
+                            '{}{}\n'.format(
+                                indent*2,
+                                line
+                            )
                         )
-                    )
 
 
 if __name__ == '__main__':
