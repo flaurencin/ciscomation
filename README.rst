@@ -115,4 +115,3 @@ First create the maintenance description in an xml file
     *mnt.xml:*
 
 Then play the script using ciscomate.py
-
