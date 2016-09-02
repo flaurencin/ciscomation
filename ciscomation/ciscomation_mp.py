@@ -5,11 +5,17 @@ import logging
 
 
 def childkiller(signum, frame):
+    '''
+    Function for handling multiprocess interuption for children processes.
+    '''
     print('Child Finishing.')
     exit(0)
 
 
 def killer(signum, frame):
+    '''
+    Function for orchestrate multiprocess interuption.
+    '''
     import time
     print('\n\n-----> Request to shutdown received.\n\n')
     count = 0
@@ -33,7 +39,11 @@ def killer(signum, frame):
             exit(1)
 
 
-def mp_wrapper(inqueue, outqueue, identity):
+def child_wrapper(inqueue, outqueue, identity):
+    '''
+    Wrapper for child process executing the functions passing through the input
+    queues.
+    '''
     signal.signal(signal.SIGINT, childkiller)
     import time
     counter = 0
@@ -46,10 +56,12 @@ def mp_wrapper(inqueue, outqueue, identity):
         result = payload[0](*payload[1], **payload[2])
         outqueue.put(result)
         time.sleep(0.01)
-    # creating children processes input queue list and process List
 
 
 def mp_manager(func, args_list, threads_count=4, pbar=None):
+    '''
+    Father and orchestartor of all processes.
+    '''
     logger = logging.getLogger()
     signal.signal(signal.SIGINT, killer)
     logs = []
@@ -63,7 +75,7 @@ def mp_manager(func, args_list, threads_count=4, pbar=None):
     for count in range(threads_count):
         # creating in queues and puting them in queue list
         in_queues.append(multiprocessing.Queue())
-        processes.append(multiprocessing.Process(target=mp_wrapper, args=(
+        processes.append(multiprocessing.Process(target=child_wrapper, args=(
             (in_queues[count]), out_queue, count,)))
     logger.debug('Starting Update %d Threads' % threads_count)
     # startring Jobs

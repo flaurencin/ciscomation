@@ -549,7 +549,7 @@ def run_maint(maint_data, credentials, procnum=1):
     results = []
     LOGGER = logging.getLogger(__SCRIPT__)
     if procnum == 1 or not maint_data['mp_compat']:
-        pbar = init_progess_bar('hosts porc=1 ', len(maint_data['actions']))
+        pbar = init_progess_bar('hosts proc=1 ', len(maint_data['actions']))
         pbar.start()
         for hostid, switch in enumerate(maint_data['actions']):
             data = run_commands(
@@ -568,9 +568,10 @@ def run_maint(maint_data, credentials, procnum=1):
             if 'logs' in data[data.keys()[0]]:
                 for log in data[data.keys()[0]]['logs']:
                     LOGGER.log(logging.getLevelName(log[0].upper()), log[1])
+        pbar.finish()
     elif procnum > 1 and maint_data['mp_compat']:
         pbar = init_progess_bar(
-            'hosts porc={} '.format(procnum),
+            'hosts proc={} '.format(procnum),
             len(maint_data['actions'])
         )
         pbar.start()
@@ -595,6 +596,7 @@ def run_maint(maint_data, credentials, procnum=1):
             )
         func = run_commands
         results = mp_manager(func, args_list, threads_count=procnum, pbar=pbar)
+        pbar.finish()
     else:
         raise CiscomationException('procum parameter cannot be null')
     dict_result = {}

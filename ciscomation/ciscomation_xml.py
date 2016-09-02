@@ -104,7 +104,12 @@ def xml_to_maintenance(filname):
                         )
                         break
                 elif prop.tag == 'commands':
-                    commands = [li for li in prop.text.strip().splitlines()]
+                    commands = [li for li in prop.text.splitlines()]
+                    if not commands[0].strip():
+                        commands = commands[1:]
+                        logger.debug(
+                            "{} First command was empty.".format(name)
+                        )
                     mp_compat = mp_compat and check_mp_commands(commands)
                 elif prop == 'pause':
                     pause = True
