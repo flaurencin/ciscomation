@@ -1,4 +1,4 @@
-__version__ = '2.2'
+__version__ = '2.2.1'
 __author__ = 'Frederic Laurencin'
 __title__ = 'ciscomation'
 __author_email__ = 'flaurencin@free.fr'
