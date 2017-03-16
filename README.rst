@@ -35,7 +35,7 @@ Features
 Under development features
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- sqve-config keeword (to support extra prompts cisco may generate)
+- save-config keeword (to support extra prompts cisco may generate)
 - condition by driver commands
 - conf-start conf-stop heywords
 - command result matching for extra commands execution
