@@ -347,8 +347,11 @@ def run_commands(host, login, password, driver=None, commands=["show version"],
                 result[host]['logs'].append(
                     (
                         'critical',
-                        '{} Command Failed with unknown Exception : {}'
-                    ).format(host, str(exc))
+                        (
+                            '{} Command Failed with unknown Exception : '
+                            '{}'
+                        ).format(host, str(exc))
+                    )
                 )
                 result[host]['logs'].append(
                     (
